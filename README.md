@@ -1,4 +1,3 @@
-# BELLA
 # BELLA package
 This matlab package provides generic solvers for Bregman EnveLope Linesearch Algorithm (BELLA) for solving structured nonsmooth nonconvex problems of the form
 
@@ -23,7 +22,7 @@ if you are not working in the root folder of the package or replacing '.' by the
 ## Example: nonnegative matrix factorization (NMF)
 We recommend to look at the following files to see how to use the package:
 
-Demo/demo_NMF.m: contains an example for comparing a fixed penalty version of BPALM, A-BPALM1, and A-BPALM2 for ONMF with synthetic data.
+Demo/demo_NMF.m: contains an example of BELLA for NMF with synthetic data.
 
 ## Solving your own optimization problem
 You need to to write:
