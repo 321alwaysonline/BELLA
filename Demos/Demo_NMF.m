@@ -6,7 +6,7 @@ clear
 clf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Slist = {'BELLA'};
+Slist = {'BELLA','BPALM','A-BPALM1','A-BPALM2'};
 flag  = 'dense';
 %flag  = 'sparse';
 
