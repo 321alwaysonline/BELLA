@@ -92,6 +92,18 @@ for i=1:1
     for j = 1:length(Slist) 
 
         switch Slist{j}
+            
+            case 'BELLA'
+                fprintf('Running BELLA ...\n')
+                tic
+                [x,f,out] = BELLA( x0,func,kernel,subprob,options );         
+                toc
+                F           = out.F;
+                F_best      = F(1);
+                fun_BELLA   = F(end);
+                t_BELLA     = out.T;
+                nfunc_BELLA = out.Nfunc;
+                f_eval{j}   = F';
                            
             case 'BPALM'
                 fprintf('Running BPALM ...\n')
