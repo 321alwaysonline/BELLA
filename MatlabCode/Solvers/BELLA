@@ -5,7 +5,7 @@
 % BELLA is a locally superlinearly convergent Bregman forward-backward  
 % splitting method for solving nonsmooth nonconvex composite optimization
 % 
-%                    min f(x) + g(x) 
+%        min f(x) + g(x) 
 %      where x=(x_1,...,x_N) and
 %            f is relatively smooth;
 %            g is proper and lsc. 
@@ -122,21 +122,44 @@ T0 = tic;
 % ======================= start of the main loop =======================
 while ~StopFlag
     xk1 = xk;
-        % solving subproblem %
-        optsub.block   = i;
-        gammaki        = gammak(i);
-        optsub.gammaki = gammaki;
-        [fxk1,gfki]    = func(xk1,i);
-        Nfunc          = Nfunc+1;
-        Ngrad          = Ngrad+1;
-        [hxk1,ghki]    = kernel(xk1,i);
-        optsub.gfki    = gfki;
-        optsub.ghki    = ghki;
-        xk1i           = subprob(xk1,optsub); 
-        % updating the sequence %
-        xk1(i)         = {xk1i};
-        Niter          = Niter+1
-        F              = [F,fxk1];
+    % solving subproblem %
+    gammaki        = gammak(i);
+    optsub.gammaki = gammaki;
+    [fxk1,gfki]    = func(xk1,i);
+    Nfunc          = Nfunc+1;
+    Ngrad          = Ngrad+1;
+    [hxk1,ghki]    = kernel(xk1,i);
+    optsub.gfki    = gfki;
+    optsub.ghki    = ghki;s
+    xk1i           = subprob(xk1,optsub); 
+        
+    % computing the Bregman distance Dh(x^{k,i}-x^{k,i-1}) %
+    hxk1   = kernel(xk1,0);
+    IP_h_k = ghki(:).'*xk1_xk(:);
+    Dh     = hxk1-hxk-IP_h_k;
+    
+    %if statement
+    if Dh <= options.epsilon
+        
+    end
+    %choose a direction 
+    
+ 
+    % while loop
+    i = 0;
+    while 
+    tauk = 2^(-i);
+    xk1 = (1-tauk)
+    end
+ 
+     
+    % updating the sequence %
+    xk1(i)         = {xk1i};
+    Niter          = Niter+1
+    F              = [F,fxk1];
+        
+        
+        
     xk = xk1;
     outx=[outx; xk1]; % Hien added
   
